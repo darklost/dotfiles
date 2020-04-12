@@ -50,7 +50,7 @@ proxy_config() {
     source $HOME/.zshrc
 }
 
-proxy_proxy() {
+proxy_enable() {
     export ALL_PROXY="${_PROXY_SOCKS5}"
     export all_proxy="${_PROXY_SOCKS5}"
 }
@@ -61,7 +61,7 @@ proxy_disable() {
 }
 
 proxy_enable_apt() {
-    
+
     if [ ! -f "/etc/apt/apt.conf" ]; then
         touch /etc/apt/apt.conf
     fi
