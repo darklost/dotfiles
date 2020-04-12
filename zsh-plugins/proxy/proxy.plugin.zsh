@@ -96,4 +96,4 @@ proxy_off() {
     proxy_check_ip
 }
 
-auto_proxy
+proxy_auto
