@@ -61,6 +61,9 @@ proxy_disable() {
 }
 
 proxy_enable_apt() {
+    if [ ! -f "/etc/apt/apt.conf" ]; then
+        touch "/etc/apt/apt.conf"
+    fi
     sudo sed -i -e '/Acquire::http::Proxy/d' /etc/apt/apt.conf
     sudo sed -i -e '/Acquire::https::Proxy/d' /etc/apt/apt.conf
     echo -e "Acquire::http::Proxy \"${_PROXY_HTTP}\";" | sudo tee -a /etc/apt/apt.conf > /dev/null
